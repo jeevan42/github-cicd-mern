@@ -28,3 +28,4 @@ jobs:
         cd frontend
         npm i
         npm run build
+        sudo service ngnix restart
