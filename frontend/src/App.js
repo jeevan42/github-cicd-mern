@@ -10,7 +10,7 @@ function App() {
   },[]);
 
   const getNames =  async () => {
-    const response =  await axios.get('/names');
+    const response =  await axios.get('http://localhost:5000/names');
     console.log(response);
     
     setUserName(response.data);
