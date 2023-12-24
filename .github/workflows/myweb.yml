@@ -18,6 +18,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: |
+        # Source nvm to make Node.js and npm available
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    
+        # Use Node.js specified in your project's .nvmrc
+        nvm install ${{ matrix.node-version }}
         npm i
         cd frontend
         npm i
